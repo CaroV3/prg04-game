@@ -5,6 +5,7 @@ import manSpriteSheet from '../images/walking-girl.png'
 import birdPoop from '../images/bird_poop.png'
 import poopSplash from '../images/splash-poop.png'
 import tree from '../images/tree.png'
+import enemyBird from '../images/enemy-bird.png'
 
 const Resources = {
     Background: new ImageSource (backgroundImage),
@@ -12,8 +13,9 @@ const Resources = {
     Man: new ImageSource (manSpriteSheet),
     Poop: new ImageSource (birdPoop),
     Splash: new ImageSource (poopSplash),
-    Tree: new ImageSource (tree)
+    Tree: new ImageSource (tree),
+    EnemyBird: new ImageSource (enemyBird)
 }
-const ResourceLoader = new Loader([Resources.Background, Resources.Duck,  Resources.Man, Resources.Poop, Resources.Splash, Resources.Tree])
+const ResourceLoader = new Loader([Resources.Background, Resources.Duck,  Resources.Man, Resources.Poop, Resources.Splash, Resources.Tree, Resources.EnemyBird])
 
 export { Resources, ResourceLoader }

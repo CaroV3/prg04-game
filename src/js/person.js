@@ -9,7 +9,7 @@ import {
 import {Resources} from "./resources.js";
 
 
-export class Man extends Actor {
+export class Person extends Actor {
     constructor() {
         super({width: 75, height: 125});
         // de player heeft zelf de hele spritesheet omdat er maar 1 player is
@@ -18,17 +18,27 @@ export class Man extends Actor {
             grid: {rows: 1, columns: 4, spriteWidth: 123, spriteHeight: 200},
         });
         // test of alle sprites er zijn
+        let randomStart = Math.random() * 300
         this.pos = new Vector(1000, 510);
 
         const walkLeft = Animation.fromSpriteSheet(walkSheet, range(0,3), 100);
         this.graphics.add("walkleft", walkLeft);
         this.graphics.use(walkLeft);
 
-        this.random = new Random(1337)
+
+
     }
 
     onInitialize(engine) {
-        this.vel = new Vector(-600, 0);
+        let randomSpeed = Math.random() * -400
+
+        this.vel = new Vector(-400 + randomSpeed, 0);
+    }
+
+    onPostUpdate(_engine, _delta) {
+        if(this.pos.x < -200) {
+            this.kill()
+        }
     }
 
 

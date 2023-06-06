@@ -6,6 +6,7 @@ import { Actor,
     range,} from "excalibur";
 import {Resources} from "./resources.js";
 import {Tree} from "./tree.js";
+import {EnemyBird} from "./enemy-bird.js";
 
 
 export class Duck extends Actor {
@@ -68,9 +69,9 @@ export class Duck extends Actor {
             }
 
     hitSomething(event){
-        if (event.other instanceof Tree) {
+        if (event.other instanceof Tree || event.other instanceof EnemyBird) {
             console.log("ouch you've hit something");
-            this.actions.blink(100, 100, 5)
+            this.actions.blink(100, 100, 6)
         }
     }
 

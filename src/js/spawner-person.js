@@ -1,12 +1,11 @@
 import {Actor, Random, Timer} from "excalibur";
-import {Man} from "./man.js";
+import {Person} from "./person.js";
 import {Tree} from "./tree.js";
 
-export class SpawnerCharacter extends Actor{
+export class SpawnerPerson extends Actor{
 
     constructor() {
         super();
-
 
     }
 
@@ -22,7 +21,7 @@ export class SpawnerCharacter extends Actor{
 
     spawn(engine) {
         console.log("spawnC");
-        const man = new Man()
+        const man = new Person()
         engine.currentScene.add(man)
     }
 }

@@ -5,6 +5,7 @@ import {
     Font,
     FontUnit,
     Color,
+    Text
 } from "excalibur";
 
 export class UI extends ScreenElement {
@@ -12,21 +13,21 @@ export class UI extends ScreenElement {
     scoreText
 
     constructor() {
-        super({x: 10, y: 10})
+        super({x: 100, y: 100})
     }
 
     onInitialize(engine) {
-        this.scoreText = new Label({
+        this.scoreText = new Text({
             text: 'Score: 0',
             font: new Font({
                 unit: FontUnit.Px,
                 family: 'Impact',
                 size: 25,
-                color: Color.Black,
+                color: Color.Black
             }),
-            pos: new Vector(670, 30)
         })
-        this.addChild(this.scoreText)
+        this.graphics.use(this.scoreText)
+        this.pos = new Vector(670, 30)
     }
 
     updateScore() {

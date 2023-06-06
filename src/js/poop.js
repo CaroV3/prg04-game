@@ -1,10 +1,6 @@
-import {
-    Actor,
-    Vector,
-} from "excalibur";
+import {Actor, Vector,} from "excalibur";
 import {Resources} from "./resources.js";
-import { Man} from "./man.js";
-import { UI} from "./UI.js";
+import {Person} from "./person.js";
 
 
 export class Poop extends Actor {
@@ -21,10 +17,10 @@ export class Poop extends Actor {
     }
 
     hitSomething(event, engine){
-        if (event.other instanceof Man) {
+        if (event.other instanceof Person) {
             engine.ui.updateScore();
             this.graphics.use(Resources.Splash.toSprite());
-            this.vel = new Vector(-600, 0);
+            this.vel = event.other.vel;
             this.scale = new Vector(0.1, 0.1);
         }
     }
