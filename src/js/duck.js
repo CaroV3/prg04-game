@@ -72,6 +72,7 @@ export class Duck extends Actor {
         if (event.other instanceof Tree || event.other instanceof EnemyBird) {
             console.log("ouch you've hit something");
             this.actions.blink(100, 100, 6)
+
         }
     }
 

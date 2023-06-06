@@ -9,7 +9,8 @@ import {
 } from "excalibur";
 
 export class UI extends ScreenElement {
-    score = 0
+    lifes = 3;
+    lifesText
     scoreText
 
     constructor() {
@@ -17,7 +18,7 @@ export class UI extends ScreenElement {
     }
 
     onInitialize(engine) {
-        this.scoreText = new Text({
+        this.scoreText = new Label({
             text: 'Score: 0',
             font: new Font({
                 unit: FontUnit.Px,
@@ -26,12 +27,29 @@ export class UI extends ScreenElement {
                 color: Color.Black
             }),
         })
-        this.graphics.use(this.scoreText)
-        this.pos = new Vector(670, 30)
+        this.scoreText.pos =  new Vector(590, 30)
+        this.addChild(this.scoreText)
+
+
+        this.lifesText = new Label({
+            text: 'lifes: 3',
+            font: new Font({
+                unit: FontUnit.Px,
+                family: 'Impact',
+                size: 25,
+                color: Color.Black
+            }),
+        })
+        this.lifesText.pos = new Vector(500, 30)
+        this.addChild(this.lifesText)
     }
 
-    updateScore() {
-        this.score++
-        this.scoreText.text = `Score: ${this.score}`
+    updateScore(score) {
+        this.scoreText.text = `Score: ${score}`
+    }
+
+    updateLifes() {
+        this.lifes--
+        this.lifesText.text = `Score: ${this.lifes}`;
     }
 }
