@@ -5,11 +5,12 @@ import { Actor,
     Animation,
     range,} from "excalibur";
 import {Resources} from "./resources.js";
+import {Tree} from "./tree.js";
 
 
 export class Duck extends Actor {
     constructor() {
-        super();
+        super({width: 90, height: 80});
         // de player heeft zelf de hele spritesheet omdat er maar 1 player is
         const flySheet = SpriteSheet.fromImageSource({
             image: Resources.Duck,
@@ -25,6 +26,8 @@ export class Duck extends Actor {
     onInitialize(engine) {
         this.pos = new Vector(200, 200);
         this.vel = new Vector(0, 0);
+
+        this.on('collisionstart', (event) => this.hitSomething(event, engine))
     }
     onPreUpdate(engine) {
         let xspeed = 0;
@@ -58,8 +61,18 @@ export class Duck extends Actor {
         }
 
         this.vel = new Vector(xspeed, yspeed);
-    }
 
+        if (this.pos.x>800 || this.pos.y>600){
+
+        }
+            }
+
+    hitSomething(event){
+        if (event.other instanceof Tree) {
+            console.log("ouch you've hit something");
+            this.actions.blink(100, 100, 5)
+        }
+    }
 
 }
 
