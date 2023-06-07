@@ -9,12 +9,11 @@ import {
 } from "excalibur";
 
 export class UI extends ScreenElement {
-    lifes = 3;
     lifesText
     scoreText
 
     constructor() {
-        super({x: 100, y: 100})
+        super({x: 100, y: 50})
     }
 
     onInitialize(engine) {
@@ -27,12 +26,12 @@ export class UI extends ScreenElement {
                 color: Color.Black
             }),
         })
-        this.scoreText.pos =  new Vector(590, 30)
+        this.scoreText.pos =  new Vector(590, 0)
         this.addChild(this.scoreText)
 
 
-        this.lifesText = new Label({
-            text: 'lifes: 3',
+        this.livesText = new Label({
+            text: 'Lives: 3',
             font: new Font({
                 unit: FontUnit.Px,
                 family: 'Impact',
@@ -40,16 +39,15 @@ export class UI extends ScreenElement {
                 color: Color.Black
             }),
         })
-        this.lifesText.pos = new Vector(500, 30)
-        this.addChild(this.lifesText)
+        this.livesText.pos = new Vector(500, 0)
+        this.addChild(this.livesText)
     }
 
     updateScore(score) {
         this.scoreText.text = `Score: ${score}`
     }
 
-    updateLifes() {
-        this.lifes--
-        this.lifesText.text = `Score: ${this.lifes}`;
+    updateLives(lives) {
+        this.livesText.text = `Lives: ${lives}`;
     }
 }

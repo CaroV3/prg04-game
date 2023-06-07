@@ -28,7 +28,6 @@ export class Startscreen extends Scene {
     }
 
     onInitialize(engine) {
-        super.onInitialize(engine);
         this.title = new Label({
             text: 'What the duck',
             font: new Font({

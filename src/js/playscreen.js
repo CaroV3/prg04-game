@@ -14,6 +14,7 @@ export class Playscreen extends Scene {
     duck
     ui
     score = 0;
+    lives = 3;
 
     constructor() {
         super({ width: 800, height: 600 })
@@ -22,7 +23,12 @@ export class Playscreen extends Scene {
         // this.debug.transform.showAll = true;
     }
 
-    onInitialize() {
+    onInitialize(engine) {
+        this.game = engine
+    }
+
+    onActivate(){
+
         console.log("start de game!")
 
         this.add(new Background());
@@ -31,13 +37,15 @@ export class Playscreen extends Scene {
 
         this.add(new SpawnerPerson());
 
-        this.duck = new Duck();
-        this.add(this.duck);
-
         this.ui = new UI();
         this.add(this.ui);
 
+        this.duck = new Duck();
+        this.add(this.duck);
+        // this.score = 0;
+        // this.lives = 3;
     }
+
 
     onPreUpdate(engine) {
         if (
@@ -51,5 +59,18 @@ export class Playscreen extends Scene {
         this.score++
         this.ui.updateScore(this.score);
     }
+
+    subtractLive() {
+        this.lives--
+        this.ui.updateLives(this.lives);
+
+        if (this.lives === 0) {
+            this.duck.kill();
+            if (this.duck.isKilled()){
+                this.game.goToScene('gameover', {score: this.score });
+            }
+        }
+    }
+
 
 }
