@@ -9,7 +9,7 @@ import {Resources} from "./resources.js";
 
 export class EnemyBird extends Actor {
     constructor() {
-        super({width: 90, height: 80});
+        super({width: 80, height: 70});
         // de player heeft zelf de hele spritesheet omdat er maar 1 player is
         const flySheet = SpriteSheet.fromImageSource({
             image: Resources.EnemyBird,
@@ -36,6 +36,7 @@ export class EnemyBird extends Actor {
     onPostUpdate(_engine, _delta) {
         if(this.pos.x < -200) {
             this.kill()
+            // console.log('vijandige een dood');
         }
     }
 

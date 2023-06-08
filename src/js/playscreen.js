@@ -13,6 +13,8 @@ import {Poop} from "./poop.js";
 export class Playscreen extends Scene {
     duck
     ui
+    obstacle
+    person
     score = 0;
     lives = 3;
 
@@ -33,17 +35,18 @@ export class Playscreen extends Scene {
 
         this.add(new Background());
 
-        this.add(new SpawnerObstacles());
+        this.obstacle = new SpawnerObstacles();
+        this.add(this.obstacle);
 
-        this.add(new SpawnerPerson());
+
+        this.person = new SpawnerPerson();
+        this.add(this.person);
 
         this.ui = new UI();
         this.add(this.ui);
 
         this.duck = new Duck();
         this.add(this.duck);
-        // this.score = 0;
-        // this.lives = 3;
     }
 
 

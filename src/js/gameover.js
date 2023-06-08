@@ -12,6 +12,7 @@ export class Gameover extends Scene {
     title;
     subtitle;
     score;
+    showScore;
 
     onActivate(ctx) {
         if (ctx.data) {
@@ -27,7 +28,7 @@ export class Gameover extends Scene {
                 size: 50,
                 color: Color.Black,
             }),
-            pos: new Vector(300, 230)
+            pos: new Vector(270, 230)
         })
         this.add(this.title);
 
@@ -39,7 +40,7 @@ export class Gameover extends Scene {
                 size: 28,
                 color: Color.Black,
             }),
-            pos: new Vector(300, 400)
+            pos: new Vector(250, 300)
         })
         this.subtitle.actions.blink(500, 100, 1000);
         this.add(this.subtitle);
@@ -52,7 +53,7 @@ export class Gameover extends Scene {
                 size: 28,
                 color: Color.Black,
             }),
-            pos: new Vector(300, 500)
+            pos: new Vector(310, 450)
         })
         this.add(this.showScore);
         console.log(this.score);
@@ -70,6 +71,8 @@ export class Gameover extends Scene {
         super._preupdate(engine, delta);
         if (engine.input.keyboard.wasPressed(Input.Keys.Enter)) {
             window.location.reload();
+            // engine.goToScene('startscreen');
         }
     }
+
 }

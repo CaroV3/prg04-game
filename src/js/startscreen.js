@@ -48,7 +48,7 @@ export class Startscreen extends Scene {
                 size: 28,
                 color: Color.Black,
             }),
-            pos: new Vector(300, 400)
+            pos: new Vector(290, 400)
         })
         this.subtitle.actions.blink(500, 100, 1000);
         this.add(this.subtitle);

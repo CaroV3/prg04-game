@@ -70,7 +70,7 @@ export class Duck extends Actor {
 
     hitSomething(event){
         if (event.other instanceof Tree || event.other instanceof EnemyBird) {
-            console.log("ouch you've hit something");
+            // console.log("ouch you've hit something");
             this.actions.blink(100, 100, 6)
             this.scene.subtractLive();
         }

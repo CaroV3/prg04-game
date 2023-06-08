@@ -20,17 +20,19 @@ export class SpawnerObstacles extends Actor{
     }
 
     spawn(engine) {
-        console.log("spawnO");
+        // console.log("spawnO");
         let randomNumber = Math.random()*4;
-        console.log(randomNumber);
+        // console.log(randomNumber);
         if (randomNumber < 2) {
             this.obstacle = new Tree();
-            console.log('tree')
+            // console.log('tree')
         } else {
-            console.log('enemy bird')
+            // console.log('enemy bird')
             this.obstacle = new EnemyBird();
         }
         engine.currentScene.add(this.obstacle);
 
     }
+
+
 }

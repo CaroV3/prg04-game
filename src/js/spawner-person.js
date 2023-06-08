@@ -20,8 +20,8 @@ export class SpawnerPerson extends Actor{
     }
 
     spawn(engine) {
-        console.log("spawnC");
-        const man = new Person()
-        engine.currentScene.add(man)
+        // console.log("spawn person");
+        const person = new Person()
+        engine.currentScene.add(person)
     }
 }
