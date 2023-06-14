@@ -1,12 +1,15 @@
-import { Actor,
+import {
+    Actor,
     SpriteSheet,
     Vector,
     Input,
     Animation,
-    range,} from "excalibur";
+    range,
+} from "excalibur";
 import {Resources} from "./resources.js";
 import {Tree} from "./tree.js";
 import {EnemyBird} from "./enemy-bird.js";
+import {Poop} from "./poop.js";
 
 
 export class Duck extends Actor {
@@ -24,12 +27,14 @@ export class Duck extends Actor {
 
         this.graphics.add("flyright", flyRight);
     }
+
     onInitialize(engine) {
         this.pos = new Vector(200, 200);
         this.vel = new Vector(0, 0);
 
         this.on('collisionstart', (event) => this.hitSomething(event, engine))
     }
+
     onPreUpdate(engine) {
         let xspeed = 0;
         let yspeed = 0;
@@ -63,12 +68,15 @@ export class Duck extends Actor {
 
         this.vel = new Vector(xspeed, yspeed);
 
-        if (this.pos.x>800 || this.pos.y>600){
 
+        if (
+            engine.input.keyboard.wasReleased(Input.Keys.Space)
+        ) {
+            engine.currentScene.add(new Poop(this.pos.x - 20, this.pos.y + 35))
         }
-            }
+    }
 
-    hitSomething(event){
+    hitSomething(event) {
         if (event.other instanceof Tree || event.other instanceof EnemyBird) {
             // console.log("ouch you've hit something");
             this.actions.blink(100, 100, 6)

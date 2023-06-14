@@ -10,13 +10,13 @@ export class SpawnerPerson extends Actor{
     }
 
     onInitialize(engine) {
-        this.timer = new Timer({
+        this.timerB = new Timer({
             fcn: () => this.spawn(engine),
             interval: 2000,
             repeats: true
         })
-        engine.currentScene.add(this.timer)
-        this.timer.start()
+        engine.currentScene.add(this.timerB)
+        this.timerB.start()
     }
 
     spawn(engine) {

@@ -25,8 +25,6 @@ export class Person extends Actor {
         this.graphics.add("walkleft", walkLeft);
         this.graphics.use(walkLeft);
 
-
-
     }
 
     onInitialize(engine) {

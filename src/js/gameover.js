@@ -70,9 +70,18 @@ export class Gameover extends Scene {
     _preupdate(engine, delta) {
         super._preupdate(engine, delta);
         if (engine.input.keyboard.wasPressed(Input.Keys.Enter)) {
-            window.location.reload();
-            // engine.goToScene('startscreen');
+            // window.location.reload();
+            engine.goToScene('startscreen');
         }
     }
+
+    onDeactivate(_context) {
+        super.onDeactivate(_context);
+        this.remove(this.title);
+        this.remove(this.subtitle);
+        this.remove(this.showScore);
+
+    }
+
 
 }

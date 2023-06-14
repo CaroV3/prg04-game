@@ -50,13 +50,6 @@ export class Playscreen extends Scene {
     }
 
 
-    onPreUpdate(engine) {
-        if (
-            engine.input.keyboard.wasReleased(Input.Keys.Space)
-        ) {
-            this.add(new Poop(this.duck.pos.x-20, this.duck.pos.y+35));
-        }
-    }
 
     addScore() {
         this.score++
@@ -75,5 +68,17 @@ export class Playscreen extends Scene {
         }
     }
 
+    onDeactivate(_context) {
+        super.onDeactivate(_context);
+        this.obstacle.timerA.stop();
+        this.person.timerB.stop();
+        //not needed. scene.clear() is enough
+        // this.obstacle.kill();
+        // this.person.kill();
+        this.clear();
+        this.lives = 3;
+        this.score = 0;
+
+    }
 
 }

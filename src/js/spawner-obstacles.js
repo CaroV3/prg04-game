@@ -10,13 +10,13 @@ export class SpawnerObstacles extends Actor{
     }
 
     onInitialize(engine) {
-        this.timer = new Timer({
+        this.timerA = new Timer({
             fcn: () => this.spawn(engine),
             interval: 2000,
             repeats: true
         })
-        engine.currentScene.add(this.timer)
-        this.timer.start()
+        engine.currentScene.add(this.timerA)
+        this.timerA.start()
     }
 
     spawn(engine) {

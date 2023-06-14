@@ -40,4 +40,5 @@ export class EnemyBird extends Actor {
         }
     }
 
+
 }
