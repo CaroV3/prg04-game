@@ -8,7 +8,7 @@ import {SpawnerObstacles} from "./spawner-obstacles.js";
 import {SpawnerPerson} from "./spawner-person.js";
 import {Duck} from "./duck.js";
 import {UI} from "./UI.js";
-import {Poop} from "./poop.js";
+import {Hat} from "./hat.js";
 
 export class Playscreen extends Scene {
     duck
@@ -20,17 +20,14 @@ export class Playscreen extends Scene {
 
     constructor() {
         super({ width: 800, height: 600 })
-        Physics.useArcadePhysics();
-        // this.showDebug(true);
-        // this.debug.transform.showAll = true;
+
     }
 
     onInitialize(engine) {
         this.game = engine
     }
 
-    onActivate(){
-
+    onActivate(_context){
         console.log("start de game!")
 
         this.add(new Background());
@@ -38,9 +35,9 @@ export class Playscreen extends Scene {
         this.obstacle = new SpawnerObstacles();
         this.add(this.obstacle);
 
-
         this.person = new SpawnerPerson();
         this.add(this.person);
+
 
         this.ui = new UI();
         this.add(this.ui);

@@ -14,6 +14,13 @@ export class Gameover extends Scene {
     score;
     showScore;
 
+    constructor() {
+        super();
+        const background = new Background();
+        this.add(background);
+
+    }
+
     onActivate(ctx) {
         if (ctx.data) {
             this.score = ctx.data.score;
@@ -58,14 +65,6 @@ export class Gameover extends Scene {
         this.add(this.showScore);
         console.log(this.score);
     }
-
-    constructor() {
-        super();
-        const background = new Background();
-        this.add(background);
-
-    }
-
 
     _preupdate(engine, delta) {
         super._preupdate(engine, delta);

@@ -10,7 +10,7 @@ export class Poop extends Actor {
         this.pos = new Vector(x, y);
         this.scale = new Vector(0.15, 0.15);
         // this.vel = new Vector(0, 1000)
-        this.body.collisionType = CollisionType.Active
+        this.body.collisionType = CollisionType.Active;
     }
 
     onInitialize(engine) {

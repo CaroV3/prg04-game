@@ -17,17 +17,18 @@ import {Duck} from "./duck.js";
 export class Startscreen extends Scene {
     title;
     subtitle;
+    duck
 
     constructor() {
         super();
         const background = new Background();
         this.add(background);
-
-        const duck = new Duck();
-        this.add(duck);
     }
 
     onInitialize(engine) {
+        this.duck = new Duck();
+        this.add(this.duck);
+
         this.title = new Label({
             text: 'What the duck',
             font: new Font({

@@ -2,9 +2,8 @@ import {
     Actor,
     SpriteSheet,
     Vector,
-    Input,
     Animation,
-    range, Random,
+    range, Random, CollisionType,
 } from "excalibur";
 import {Resources} from "./resources.js";
 
@@ -24,13 +23,13 @@ export class Person extends Actor {
         const walkLeft = Animation.fromSpriteSheet(walkSheet, range(0,3), 100);
         this.graphics.add("walkleft", walkLeft);
         this.graphics.use(walkLeft);
-
     }
 
     onInitialize(engine) {
         let randomSpeed = Math.random() * -400
 
-        this.vel = new Vector(-400 + randomSpeed, 0);
+
+            this.vel = new Vector(-400 + randomSpeed, 0);
     }
 
     onPostUpdate(_engine, _delta) {

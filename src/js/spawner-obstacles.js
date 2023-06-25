@@ -33,6 +33,4 @@ export class SpawnerObstacles extends Actor{
         engine.currentScene.add(this.obstacle);
 
     }
-
-
 }

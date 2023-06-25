@@ -10,7 +10,6 @@ export class Game extends Engine {
 
     constructor() {
         super({width: 800, height: 600})
-        // Physics.useArcadePhysics();
         Physics.useRealisticPhysics()
         Physics.gravity = new Vector(0, 1500)
         // this.showDebug(true);
